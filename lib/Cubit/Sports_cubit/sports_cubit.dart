@@ -7,7 +7,7 @@ class SportsCubit extends Cubit<SportsState> {
   SportsCubit(this.newsRepo) : super(InitialSportsState());
   Future<void> fetchSports() async {
     emit(LoadingSportsState());
-    var result = await newsRepo.getBusiness();
+    var result = await newsRepo.getSports();
     result.fold(
       (failur) {
         return emit(FailureSportsState(errMessage: failur.errMessage));

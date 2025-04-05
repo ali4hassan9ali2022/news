@@ -4,6 +4,7 @@ import 'package:news/Core/Utils/app_router.dart';
 import 'package:news/Core/Utils/service_locater.dart';
 import 'package:news/Cubit/App_cubit/app_cubit.dart';
 import 'package:news/Cubit/News_cubit/business_cubit.dart';
+import 'package:news/Cubit/Sports_cubit/sports_cubit.dart';
 import 'package:news/Theme/theme_mode.dart';
 import 'package:news/repo/news_repo_impl.dart';
 import 'package:news/simple_bloc_opserver.dart';
@@ -22,7 +23,11 @@ class NewsApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AppCubit()),
-        BlocProvider(create: (context) => BusinessCubit(newsRepo: getIt.get<NewsRepoImpl>())..fetchBusines(),)
+        BlocProvider(create: (context) => BusinessCubit(newsRepo: getIt.get<NewsRepoImpl>())
+        ..fetchBusines(),),
+        BlocProvider(create: (context) => SportsCubit(getIt.get<NewsRepoImpl>())
+        ..fetchSports(),
+        )
       ],
       child: MaterialApp.router(
         themeMode: ThemeMode.dark,
