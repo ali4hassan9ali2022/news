@@ -7,7 +7,7 @@ class InitialBusinessState extends NewsState {}
 class LoadingBusinessState extends NewsState {}
 
 class SuccessBusinessState extends NewsState {
- final List<ArticlesModel> business;
+  final List<ArticlesModel> business;
 
   SuccessBusinessState({required this.business});
 }
@@ -17,3 +17,17 @@ class FailureBusinessState extends NewsState {
 
   FailureBusinessState({required this.errMessage});
 }
+
+// class LoadingSportsState extends NewsState {}
+
+// class SuccessSportsState extends NewsState {
+//   final List<ArticlesModel> sports;
+
+//   SuccessSportsState({required this.sports});
+// }
+
+// class FailureSportsState extends NewsState {
+//   final String errMessage;
+
+//   FailureSportsState({required this.errMessage});
+// }

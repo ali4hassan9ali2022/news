@@ -31,12 +31,13 @@ class AppCubit extends Cubit<AppState> {
     ),
   ];
   PageController pageController = PageController();
-   changeBottomNavBar(int index) {
+  changeBottomNavBar(int index) {
     currentIndex = index;
 
     emit(ChangeBottomNavAppState());
   }
-   changePageView(int index) {
+
+  changePageView(int index) {
     currentIndex = index;
     emit(ChangePageViewAppState());
   }
