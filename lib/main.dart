@@ -4,6 +4,7 @@ import 'package:news/Core/Utils/app_router.dart';
 import 'package:news/Core/Utils/service_locater.dart';
 import 'package:news/Cubit/App_cubit/app_cubit.dart';
 import 'package:news/Cubit/News_cubit/business_cubit.dart';
+import 'package:news/Cubit/Search_cubit/search_cubit.dart';
 import 'package:news/Cubit/Sports_cubit/sports_cubit.dart';
 import 'package:news/Cubit/healths_cubit/healths_cubit.dart';
 import 'package:news/Cubit/sciences_cubit/sciences_cubit.dart';
@@ -45,6 +46,11 @@ class NewsApp extends StatelessWidget {
           create:
               (context) =>
                   HealthsCubit(getIt.get<NewsRepoImpl>())..fetchHealths(),
+        ),
+        BlocProvider(
+          create:
+              (context) =>
+                  SearchCubit(),
         ),
       ],
       child: MaterialApp.router(

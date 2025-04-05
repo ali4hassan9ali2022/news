@@ -8,14 +8,12 @@ class CustomTextField extends StatelessWidget {
     required this.hintText,
     required this.prefixIcon,
     required this.controller,
-    required this.validator,
     required this.onTap,
     required this.type,
   });
   final String hintText;
   final IconData prefixIcon;
   final TextEditingController controller;
-  final String? Function(String?) validator;
   final Function() onTap;
   final TextInputType type;
 

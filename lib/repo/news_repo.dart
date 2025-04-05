@@ -7,4 +7,5 @@ abstract class NewsRepo {
 Future<Either<Failure,List<ArticlesModel>>> getSports();
   Future<Either<Failure,List<ArticlesModel>>> getSciences();
  Future<Either<Failure,List<ArticlesModel>>> getHealths();
+ Future<Either<Failure,List<ArticlesModel>>> getSearch({required String value});
 }

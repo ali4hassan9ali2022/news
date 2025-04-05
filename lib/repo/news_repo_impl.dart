@@ -97,4 +97,26 @@ class NewsRepoImpl implements NewsRepo {
       }
     }
   }
+  
+  @override
+  Future<Either<Failure, List<ArticlesModel>>> getSearch({required String value}) async{
+   try {
+      var response = await apiService.get(
+        endPoint:
+            "https://newsapi.org/v2/everything?q=$value&apiKey=038db3e6297343e2b9275ec42333a688",
+      );
+      List<dynamic> articles = response["articles"];
+      List<ArticlesModel> articlesBusiness = [];
+      for (var item in articles) {
+        articlesBusiness.add(ArticlesModel.fromJson(item));
+      }
+      return right(articlesBusiness);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioError(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
 }
