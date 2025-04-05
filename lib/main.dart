@@ -3,8 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/Core/Utils/app_router.dart';
 import 'package:news/Cubit/App_cubit/app_cubit.dart';
 import 'package:news/Theme/theme_mode.dart';
+import 'package:news/simple_bloc_opserver.dart';
 
 void main() {
+  Bloc.observer = SimpleBlocOpserver();
   runApp(const NewsApp());
 }
 
