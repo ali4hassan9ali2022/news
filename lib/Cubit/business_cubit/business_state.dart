@@ -1,6 +1,7 @@
 import 'package:news/Models/articles_model.dart';
 
 abstract class BusinessState {}
+class InitialBusinessState extends BusinessState{}
 
 class LoadingBusinessState extends BusinessState{}
 class SuccessBusinessState extends BusinessState{
