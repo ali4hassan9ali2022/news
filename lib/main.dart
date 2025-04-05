@@ -16,6 +16,7 @@ class NewsApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => AppCubit(),
       child: MaterialApp.router(
+        themeMode: ThemeMode.dark,
         theme: lightMode(),
         darkTheme: darkTheme(),
         debugShowCheckedModeBanner: false,
