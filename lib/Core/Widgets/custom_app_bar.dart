@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:news/Core/Utils/app_router.dart';
 import 'package:news/Cubit/App_cubit/app_cubit.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -14,7 +16,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Text(cubit.titles[cubit.currentIndex]),
       actions: [
-        IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+        IconButton(onPressed: () {
+          GoRouter.of(context).push(AppRouter.kSearchView);
+        }, icon: const Icon(Icons.search)),
         IconButton(
           onPressed: () {},
           icon: const Icon(Icons.brightness_4_outlined),
