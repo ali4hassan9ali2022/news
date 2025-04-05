@@ -40,4 +40,8 @@ class AppCubit extends Cubit<AppState> {
     currentIndex = index;
     emit(ChangePageViewAppState());
   }
+
+  void startLoading() => emit(WebViewLoadingAppState());
+  void finishLoading() => emit(WebViewLoadedAppState());
+  void errorLoading(String errMessage) => emit(WebViewErrorAppState(errMessage));
 }

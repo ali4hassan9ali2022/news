@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/Core/Widgets/category_item.dart';
-import 'package:news/Core/Widgets/category_list_view.dart';
 import 'package:news/Core/Widgets/custom_divider.dart';
 import 'package:news/Core/Widgets/custom_error_widget.dart';
 import 'package:news/Core/Widgets/custom_text_form_field.dart';
@@ -49,7 +48,7 @@ class SearchView extends StatelessWidget {
                   } else if (state is FailureSearchState) {
                     return CustomErrorWidget(text: state.errMessage);
                   } else {
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(child: Text("No Result"));
                   }
                 },
               ),
