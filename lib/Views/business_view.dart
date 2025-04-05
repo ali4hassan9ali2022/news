@@ -13,7 +13,8 @@ class BusinessView extends StatelessWidget {
     return BlocBuilder<BusinessCubit, BusinessState>(
       builder: (context, state) {
         if (state is SuccessBusinessState) {
-          return CategoryListView(itmes: state.business);
+          return CategoryListView(
+            itmes: state.business);
         } else if (state is FailureBusinessState) {
           return CustomErrorWidget(text: state.errMessage);
         } else {

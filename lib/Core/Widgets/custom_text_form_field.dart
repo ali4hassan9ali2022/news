@@ -9,9 +9,10 @@ class CustomTextField extends StatelessWidget {
     required this.prefixIcon,
     required this.controller,
     required this.onTap,
-    required this.type,
+    required this.type, this.onChanged,
   });
   final String hintText;
+  final Function(String)? onChanged;
   final IconData prefixIcon;
   final TextEditingController controller;
   final Function() onTap;
@@ -20,6 +21,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: onChanged,
       onTap: onTap,
       keyboardType: type,
       controller: controller,

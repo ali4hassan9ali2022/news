@@ -33,7 +33,7 @@ class NewsRepoImpl implements NewsRepo {
   }
 
   @override
-  Future<Either<Failure, List<ArticlesModel>>> getHealths() async{
+  Future<Either<Failure, List<ArticlesModel>>> getHealths() async {
     try {
       var response = await apiService.get(
         endPoint:
@@ -55,8 +55,8 @@ class NewsRepoImpl implements NewsRepo {
   }
 
   @override
-  Future<Either<Failure, List<ArticlesModel>>> getSciences() async{
-        try {
+  Future<Either<Failure, List<ArticlesModel>>> getSciences() async {
+    try {
       var response = await apiService.get(
         endPoint:
             "top-headlines?country=us&apiKey=038db3e6297343e2b9275ec42333a688&category=science",
@@ -77,7 +77,7 @@ class NewsRepoImpl implements NewsRepo {
   }
 
   @override
-  Future<Either<Failure, List<ArticlesModel>>> getSports() async{
+  Future<Either<Failure, List<ArticlesModel>>> getSports() async {
     try {
       var response = await apiService.get(
         endPoint:
@@ -97,13 +97,15 @@ class NewsRepoImpl implements NewsRepo {
       }
     }
   }
-  
+
   @override
-  Future<Either<Failure, List<ArticlesModel>>> getSearch({required String value}) async{
-   try {
+  Future<Either<Failure, List<ArticlesModel>>> getSearch({
+    required String value,
+  }) async {
+    try {
       var response = await apiService.get(
         endPoint:
-            "https://newsapi.org/v2/everything?q=$value&apiKey=038db3e6297343e2b9275ec42333a688",
+            "everything?q=$value&apiKey=038db3e6297343e2b9275ec42333a688",
       );
       List<dynamic> articles = response["articles"];
       List<ArticlesModel> articlesBusiness = [];

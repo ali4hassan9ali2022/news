@@ -50,7 +50,7 @@ class NewsApp extends StatelessWidget {
         BlocProvider(
           create:
               (context) =>
-                  SearchCubit(),
+                  SearchCubit(getIt.get<NewsRepoImpl>()),
         ),
       ],
       child: MaterialApp.router(

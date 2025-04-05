@@ -14,7 +14,8 @@ class ScienceView extends StatelessWidget {
     return BlocBuilder<SciencesCubit, SciencesState>(
       builder: (context, state) {
         if (state is SuccessSciencesState) {
-          return CategoryListView(itmes: state.sciences);
+          return CategoryListView(
+            itmes: state.sciences);
         } else if (state is FailureSciencesState) {
           return CustomErrorWidget(text: state.errMessage);
         } else {

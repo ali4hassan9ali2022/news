@@ -10,6 +10,7 @@ class CategoryListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
+      
       separatorBuilder: (context, index) {
         return const CustomDivider();
       },

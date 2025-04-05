@@ -13,7 +13,8 @@ class SportView extends StatelessWidget {
     return BlocBuilder<SportsCubit, SportsState>(
       builder: (context, state) {
         if (state is SuccessSportsState) {
-          return CategoryListView(itmes: state.sports);
+          return CategoryListView(
+            itmes: state.sports);
         } else if (state is FailureSportsState) {
           return CustomErrorWidget(text: state.errMessage);
         } else {
