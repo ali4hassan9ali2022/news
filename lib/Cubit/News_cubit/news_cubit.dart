@@ -14,7 +14,7 @@ class NewsCubit extends Cubit<NewsState> {
         return emit(FailureBusinessState(errMessage: failur.errMessage));
       },
       (articles) {
-        return emit(SuccessBusinessState(articlesModel: articles));
+        return emit(SuccessBusinessState(business: articles));
       },
     );
   }

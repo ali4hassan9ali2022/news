@@ -7,9 +7,9 @@ class InitialBusinessState extends NewsState {}
 class LoadingBusinessState extends NewsState {}
 
 class SuccessBusinessState extends NewsState {
-  final List<ArticlesModel> articlesModel;
+ final List<ArticlesModel> business;
 
-  SuccessBusinessState({required this.articlesModel});
+  SuccessBusinessState({required this.business});
 }
 
 class FailureBusinessState extends NewsState {

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:news/Models/articles_model.dart';
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key});
+  const CategoryItem({super.key, required this.items});
+  final ArticlesModel items;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,9 +16,12 @@ class CategoryItem extends StatelessWidget {
             child: SizedBox(
               height: 120,
               width: 120,
-              child: Image.network(
-                "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iDBFLz33tvpk/v1/1200x800.jpg",
-              ),
+              child:
+                  items.image == null
+                      ? Image.network(
+                        "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iDBFLz33tvpk/v1/1200x800.jpg",
+                      )
+                      : Image.network(items.image!),
             ),
           ),
           const SizedBox(width: 20),
@@ -25,17 +30,17 @@ class CategoryItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Ali Hassan Ali Kasrawy",
+                  items.title,
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 const SizedBox(height: 8),
-                const Text(
-                  "5-4-2025",
+                Text(
+                  "${items.publishedAt.year}-${items.publishedAt.month}-${items.publishedAt.day}",
                   maxLines: 4,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                  style: const TextStyle(fontSize: 18, color: Colors.grey),
                 ),
               ],
             ),
