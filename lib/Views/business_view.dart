@@ -10,7 +10,7 @@ class BusinessView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BusinessCubit, NewsState>(
+    return BlocBuilder<BusinessCubit, BusinessState>(
       builder: (context, state) {
         if (state is SuccessBusinessState) {
           return CategoryListView(itmes: state.business);

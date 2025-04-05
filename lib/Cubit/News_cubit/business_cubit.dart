@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news/Cubit/News_cubit/business_state.dart';
 import 'package:news/repo/news_repo.dart';
 
-class BusinessCubit extends Cubit<NewsState> {
+class BusinessCubit extends Cubit<BusinessState> {
   final NewsRepo newsRepo;
   BusinessCubit({required this.newsRepo}) : super(InitialBusinessState());
 
@@ -19,16 +19,5 @@ class BusinessCubit extends Cubit<NewsState> {
     );
   }
 
-  // Future<void> getSport() async {
-  //   emit(LoadingSportsState());
-  //   var result = await newsRepo.getBusiness();
-  //   result.fold(
-  //     (failur) {
-  //       return emit(FailureSportsState(errMessage: failur.errMessage));
-  //     },
-  //     (articles) {
-  //       return emit(SuccessSportsState(sports: articles));
-  //     },
-  //   );
-  // }
+ 
 }

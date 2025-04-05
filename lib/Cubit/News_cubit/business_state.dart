@@ -1,33 +1,19 @@
 import 'package:news/Models/articles_model.dart';
 
-abstract class NewsState {}
+abstract class BusinessState {}
 
-class InitialBusinessState extends NewsState {}
+class InitialBusinessState extends BusinessState {}
 
-class LoadingBusinessState extends NewsState {}
+class LoadingBusinessState extends BusinessState {}
 
-class SuccessBusinessState extends NewsState {
+class SuccessBusinessState extends BusinessState {
   final List<ArticlesModel> business;
 
   SuccessBusinessState({required this.business});
 }
 
-class FailureBusinessState extends NewsState {
+class FailureBusinessState extends BusinessState {
   final String errMessage;
 
   FailureBusinessState({required this.errMessage});
 }
-
-// class LoadingSportsState extends NewsState {}
-
-// class SuccessSportsState extends NewsState {
-//   final List<ArticlesModel> sports;
-
-//   SuccessSportsState({required this.sports});
-// }
-
-// class FailureSportsState extends NewsState {
-//   final String errMessage;
-
-//   FailureSportsState({required this.errMessage});
-// }
