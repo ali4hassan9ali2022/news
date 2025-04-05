@@ -5,6 +5,7 @@ import 'package:news/Core/Utils/service_locater.dart';
 import 'package:news/Cubit/App_cubit/app_cubit.dart';
 import 'package:news/Cubit/News_cubit/business_cubit.dart';
 import 'package:news/Cubit/Sports_cubit/sports_cubit.dart';
+import 'package:news/Cubit/healths_cubit/healths_cubit.dart';
 import 'package:news/Cubit/sciences_cubit/sciences_cubit.dart';
 import 'package:news/Theme/theme_mode.dart';
 import 'package:news/repo/news_repo_impl.dart';
@@ -24,13 +25,26 @@ class NewsApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => AppCubit()),
-        BlocProvider(create: (context) => BusinessCubit(newsRepo: getIt.get<NewsRepoImpl>())
-        ..fetchBusines(),),
-        BlocProvider(create: (context) => SportsCubit(getIt.get<NewsRepoImpl>())
-        ..fetchSports(),
+        BlocProvider(
+          create:
+              (context) =>
+                  BusinessCubit(newsRepo: getIt.get<NewsRepoImpl>())
+                    ..fetchBusines(),
         ),
-        BlocProvider(create: (context) => SciencesCubit(getIt.get<NewsRepoImpl>())
-        ..fetchSciences(),
+        BlocProvider(
+          create:
+              (context) =>
+                  SportsCubit(getIt.get<NewsRepoImpl>())..fetchSports(),
+        ),
+        BlocProvider(
+          create:
+              (context) =>
+                  SciencesCubit(getIt.get<NewsRepoImpl>())..fetchSciences(),
+        ),
+        BlocProvider(
+          create:
+              (context) =>
+                  HealthsCubit(getIt.get<NewsRepoImpl>())..fetchHealths(),
         ),
       ],
       child: MaterialApp.router(

@@ -5,7 +5,7 @@ import 'package:news/repo/news_repo.dart';
 class HealthsCubit extends Cubit<HealthsState> {
   final NewsRepo newsRepo;
   HealthsCubit(this.newsRepo) : super(InitialHealthsState());
-  Future<void> fetchSciences() async {
+  Future<void> fetchHealths() async {
     emit(LoadingHealthsState());
     var result = await newsRepo.getHealths();
     result.fold(
