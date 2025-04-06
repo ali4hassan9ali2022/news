@@ -9,19 +9,21 @@ class CustomTextField extends StatelessWidget {
     required this.prefixIcon,
     required this.controller,
     required this.onTap,
-    required this.type, this.onChanged,
+    required this.type,required this.onChanged,required this.validator,
   });
   final String hintText;
-  final Function(String)? onChanged;
+  final Function(String) onChanged;
   final IconData prefixIcon;
   final TextEditingController controller;
   final Function() onTap;
   final TextInputType type;
+  final String? Function(String?) validator;
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       onChanged: onChanged,
+      validator: validator,
       onTap: onTap,
       keyboardType: type,
       controller: controller,
@@ -34,6 +36,4 @@ class CustomTextField extends StatelessWidget {
       ),
     );
   }
-
-  
 }

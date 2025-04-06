@@ -8,9 +8,10 @@ class SearchCubit extends Cubit<SearchState> {
   SearchCubit(this.newsRepo) : super(InitialSearchState());
 
   TextEditingController controller = TextEditingController();
-   Future<void> fetchSearch({required String value}) async {
+   Future<void> fetchSearch({required String? value}) async {
     emit(LoadingSearchState());
-    var result = await newsRepo.getSearch(value: value);
+    if (value != null) {
+      var result = await newsRepo.getSearch(value: value);
     result.fold(
       (failur) {
         return emit(FailureSearchState(failur.errMessage));
@@ -19,6 +20,9 @@ class SearchCubit extends Cubit<SearchState> {
         return emit(SuccessSearchState(articles));
       },
     );
+    } else {
+      emit(FailureSearchState("Invalid response data"));
+    }
   }
 
 }

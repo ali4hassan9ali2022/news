@@ -20,19 +20,24 @@ class ServerFailure extends Failure {
         return ServerFailure('Unexpected Error, Please try again!');
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-            dioError.response!.statusCode, dioError.response!.data);
+          dioError.response!.statusCode,
+          dioError.response!.data,
+        );
       case DioExceptionType.cancel:
         return ServerFailure('Request to ApiServer was canceld');
       case DioExceptionType.connectionError:
         return ServerFailure('No Internet Connection');
       case DioExceptionType.unknown:
         return ServerFailure('Opps There was an Error, Please try again');
-
-    } 
+    }
   }
   factory ServerFailure.fromResponse(int? statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
-      return ServerFailure(response['error']['message']);
+      final errorMessage =
+          response['error'] != null && response['error']['message'] != null
+              ? response['error']['message']
+              : 'No Result';
+      return ServerFailure(errorMessage);
     } else if (statusCode == 404) {
       return ServerFailure('Your request not found, Please try later!');
     } else if (statusCode == 500) {
@@ -42,3 +47,4 @@ class ServerFailure extends Failure {
     }
   }
 }
+// return ServerFailure(response['error']['message']);

@@ -104,9 +104,9 @@ class NewsRepoImpl implements NewsRepo {
   }) async {
     try {
       var response = await apiService.get(
-        endPoint:
-            "everything?q=$value&apiKey=038db3e6297343e2b9275ec42333a688",
+        endPoint: "everything?q=$value&apiKey=038db3e6297343e2b9275ec42333a688",
       );
+
       List<dynamic> articles = response["articles"];
       List<ArticlesModel> articlesBusiness = [];
       for (var item in articles) {
