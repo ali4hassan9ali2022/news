@@ -1,7 +1,7 @@
 class ArticlesModel {
   final String? image;
   final String title;
-  final String url;
+  final String? url;
   final DateTime publishedAt;
   const ArticlesModel({
     required this.url,
@@ -11,7 +11,7 @@ class ArticlesModel {
   });
   factory ArticlesModel.fromJson(json) {
     return ArticlesModel(
-      url: json["url"] ?? "",
+      url: json['url'],
       image: json["urlToImage"],
       title: json["title"],
       publishedAt: DateTime.parse(json["publishedAt"]),

@@ -10,3 +10,4 @@ class WebViewErrorAppState extends AppState {
 }
 class ChangeBottomNavAppState extends AppState {}
 class ChangePageViewAppState extends AppState {}
+class AppChangeModeStates extends AppState {}

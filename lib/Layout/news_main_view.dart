@@ -14,7 +14,11 @@ class NewsMainView extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return Scaffold(
-          appBar: CustomAppBar(cubit: cubit),
+          appBar: CustomAppBar(cubit: cubit, 
+          onPressed: () {
+            cubit.changeAppMode();
+          },
+          ),
           bottomNavigationBar: BottomNavigationBar(
             items: cubit.icons,
             currentIndex: cubit.currentIndex,

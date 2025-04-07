@@ -6,11 +6,11 @@ import 'package:news/Cubit/App_cubit/app_cubit.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
-    required this.cubit,
+    required this.cubit,required this.onPressed,
   });
 
   final AppCubit cubit;
-
+  final Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -20,8 +20,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           GoRouter.of(context).push(AppRouter.kSearchView);
         }, icon: const Icon(Icons.search)),
         IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.brightness_4_outlined),
+          onPressed: onPressed,
+          icon:  Icon(Icons.brightness_4_outlined,
+          color:cubit.isDark ? Colors.white : Colors.black ,
+          ),
         ),
       ],
     );

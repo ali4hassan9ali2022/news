@@ -12,7 +12,7 @@ class CategoryItem extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return WebViewScreens(url: items.url,);
+            return WebViewScreens(url: items.url ?? "No Ruslut");
           },));
         },
         child: Row(
